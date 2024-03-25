@@ -12,6 +12,9 @@ float novoAbs(float&);
 // Segundo Exercício
 int calcularFatorial(int&);
 
+// Terceiro Exercício
+double calcularTermoPA(double&, double&, int&);
+
 int main()
 {
     // Exercício 1 main
@@ -35,6 +38,24 @@ int main()
 
     cout << "O fatorial de " << iNum2 << " é: " << iResultado2 << endl;
 
+    // Exercicio 3 main
+
+    double dPrimeiroTermo, dRazao;
+    int iNumeroTermos;
+
+    cout << "Digite o primeiro termo da PA: ";
+    cin >> dPrimeiroTermo;
+
+    cout << "Digite a razão da PA: ";
+    cin >> dRazao;
+
+    cout << "Digite o valor de n: ";
+    cin >> iNumeroTermos;
+
+    double dResultado = calcularTermoPA(dPrimeiroTermo, dRazao, iNumeroTermos);
+
+    cout << "O " << iNumeroTermos << "º termo da PA é: " << dResultado << endl;
+    
     return 0;
 }
 
@@ -68,6 +89,11 @@ int calcularFatorial(int& irefNumero) {
         iFatorial *= i;
     }
     return iFatorial;
+}
+
+// Exercício 3 Funções
+double calcularTermoPA(double& drefPrimeiroTermo, double& drefRazao, int& irefNumeroTermos) {
+    return drefPrimeiroTermo + (irefNumeroTermos - 1) * drefRazao;
 }
 
 
