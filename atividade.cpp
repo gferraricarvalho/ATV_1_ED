@@ -15,8 +15,11 @@ int calcularFatorial(int&);
 // Terceiro Exercício
 double calcularTermoPA(double&, double&, int&);
 
-// Quarto Exercicio
+// Quarto Exercício
 int calcularFibonacciIterativo(int&);
+
+// Quinto Exercício
+int contadorDigitos(int&);
 
 int main()
 {
@@ -25,12 +28,12 @@ int main()
     cout << "Digite um número inteiro";
     cin >> iNum1;
     
-    cout << novoAbs(iNum1) << endl;
+    cout << "Valor Absoluto do número é: " << novoAbs(iNum1) << endl;
     
     float fNum1;
     cout << "Digite um número float";
     cin >> fNum1;
-    cout << novoAbs(fNum1) << endl;
+    cout << "Valor Absoluto do número é: " << novoAbs(fNum1) << endl;
 
     // Exercício 2 main
     int iNum2;
@@ -66,6 +69,13 @@ int main()
     cin >> iTermo;
 
     cout << "O " << iTermo << "º termo da sequência de Fibonacci é: " << calcularFibonacciIterativo(iTermo) << endl;
+
+    // Exercicio 5 main
+    int iNumContador;
+
+    cout << "Digite um número inteiro para verificar o número de dígitos que ele possui: ";
+    cin >> iNumContador;
+    cout << "\nO número possui " << contadorDigitos(iNumContador) << " Dígito(s)" << endl;
     
     return 0;
 }
@@ -124,3 +134,21 @@ int calcularFibonacciIterativo(int& irefNum) {
     
     return iFibSequencia;
 }
+
+//Exercicio 5 Funções
+int contadorDigitos(int& irefNum){
+    if (irefNum == 0){
+        return 1;
+    }
+    // Para não alterarmos o número original criaremos uma cópia
+    int iNumCopy = irefNum;
+    int iContador = 0;
+    // Se um inteiro menor que 10 é dividido por 10, ele retornará 0
+    while (iNumCopy != 0){
+        iNumCopy = iNumCopy / 10;
+        iContador++;
+    }
+    
+    return iContador;
+}
+
