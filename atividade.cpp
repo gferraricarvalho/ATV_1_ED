@@ -15,6 +15,9 @@ int calcularFatorial(int&);
 // Terceiro Exercício
 double calcularTermoPA(double&, double&, int&);
 
+// Quarto Exercicio
+int calcularFibonacciIterativo(int&);
+
 int main()
 {
     // Exercício 1 main
@@ -55,6 +58,14 @@ int main()
     double dResultado = calcularTermoPA(dPrimeiroTermo, dRazao, iNumeroTermos);
 
     cout << "O " << iNumeroTermos << "º termo da PA é: " << dResultado << endl;
+
+    // Exercicio 4 main
+    int iTermo;
+    
+    cout << "Digite o termo da sequência de Fibonacci que deseja calcular: ";
+    cin >> iTermo;
+
+    cout << "O " << iTermo << "º termo da sequência de Fibonacci é: " << calcularFibonacciIterativo(iTermo) << endl;
     
     return 0;
 }
@@ -96,4 +107,20 @@ double calcularTermoPA(double& drefPrimeiroTermo, double& drefRazao, int& irefNu
     return drefPrimeiroTermo + (irefNumeroTermos - 1) * drefRazao;
 }
 
+//Exercicio 4 Funções
+int calcularFibonacciIterativo(int& irefNum) {
+    if (irefNum <= 1)
+        return irefNum;
+    
+    int iFibInicial = 0;
+    int iFibSegundo = 1;
+    int iFibSequencia;
 
+    for (int i = 2; i <= irefNum; ++i) {
+        iFibSequencia = iFibInicial + iFibSegundo;
+        iFibInicial = iFibSegundo;
+        iFibSegundo= iFibSequencia;
+    }
+    
+    return iFibSequencia;
+}
